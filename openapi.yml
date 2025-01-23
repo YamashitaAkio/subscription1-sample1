@@ -16,3 +16,24 @@ paths:
                 properties:
                   message:
                     type: string
+  /product:
+    get:
+      summary: Get product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        ProductID:
+          type: integer
+        Name:
+          type: string

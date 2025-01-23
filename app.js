@@ -10,6 +10,7 @@ const yamljs = require('yamljs');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var helloRouter = require('./routes/hello');
+var productRouter = require('./routes/product');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/hello', helloRouter);
+app.use('/product', productRouter);
 
 const openApiSpec = yamljs.load(path.join(__dirname, 'openapi.yml'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
